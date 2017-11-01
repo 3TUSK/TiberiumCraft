@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+
+version = "0.0.0"
+group = "info.tritusk.tiberiumcraft"
+archivesBaseName = "tiberiumcraft"
+
+repositories {
+// TODO: Add FrogCraft: Rebirth
+}
+
+minecraft {
+    version = "${mc_ver}-${forge_ver}"
+    runDir = "run"
+
+    mappings = "${mapping_ver}"
+    
+    replace "@VERSION@", project.version
+}
+
+dependencies {
+// TODO: Add FrogCraft: Rebirth
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

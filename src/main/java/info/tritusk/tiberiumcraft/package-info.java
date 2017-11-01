@@ -1,0 +1,6 @@
+@ParametersAreNonnullByDefault @MethodsReturnNonnullByDefault
+package info.tritusk.tiberiumcraft;
+
+import mcp.MethodsReturnNonnullByDefault;
+
+import javax.annotation.ParametersAreNonnullByDefault;

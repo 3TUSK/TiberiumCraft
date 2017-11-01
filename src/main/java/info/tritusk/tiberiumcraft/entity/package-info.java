@@ -1,0 +1,4 @@
+@ParametersAreNonnullByDefault
+package info.tritusk.tiberiumcraft.entity;
+
+import javax.annotation.ParametersAreNonnullByDefault;
